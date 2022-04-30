@@ -1,0 +1,89 @@
+<!-- بسم الله الرحمن الرحيم -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer⏱</title>
+    <style>
+        body {
+            background-image: url('./snow.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            color: black;
+            font-size: 5rem;
+        }
+        
+        .all {
+            padding: 5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        [data-block] {
+            color: purple;
+        }
+        
+        [data-block] span,
+        p {
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>New Years!</h2>
+    <div class="all">
+        <div data-block>
+            <p id="days">00</p> days
+        </div>
+        <div data-block>
+            <p id="hours">00</p>
+            hours
+        </div>
+        <div data-block>
+            <p id="minutes">00</p>
+            minutes
+        </div>
+        <div data-block>
+            <p id="seconds">00</p>
+            seconds
+        </div>
+    </div>
+</body>
+
+<script>
+    // بسم الله الرحمن الرحيم
+
+    const daysElem = document.getElementById('days')
+    const hoursElem = document.getElementById('hours')
+    const minutesElem = document.getElementById('minutes')
+    const secondsElem = document.getElementById('seconds')
+
+    const date = new Date('Jan 1 2023, 12:00:00').getTime();
+
+    const interval = setInterval(Interval, 1000)
+
+    function Interval() {
+        const now = new Date().getTime();
+        const duration = now - date;
+
+        const days = Math.floor(duration / (1000 * 60 * 60 * 24))
+        const hours = Math.floor((duration) % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
+        const minutes = Math.floor((duration) % (1000 * 60 * 60) / (1000 * 60))
+        const seconds = Math.floor((duration) % (1000 * 60) / (1000))
+
+        daysElem.innerHTML = days
+        hoursElem.innerHTML = "0" + hours
+        minutesElem.innerHTML = "0" + minutes
+        secondsElem.innerHTML = "0" + seconds
+
+    }
+</script>
+
+</html>
